@@ -4,12 +4,13 @@ Aplicación educativa de Programación Web para consultar en USD los precios de 
 
 ## Estado de publicación
 
-**El despliegue público todavía está pendiente.** El código y las verificaciones locales están preparados; la Actividad 4 se completa cuando Vercel quede publicado y se comprueben los recorridos en la URL pública.
+**Versión final publicada y comprobada el 24 de noviembre de 2026.**
 
 - Repositorio de GitHub: [Ezzejoa/pulso-abierto](https://github.com/Ezzejoa/pulso-abierto).
-- Aplicación pública en Vercel: pendiente de desplegar y verificar.
+- Aplicación pública en Vercel: [Pulso Abierto](https://pulso-abierto-gules.vercel.app/).
+- Documentación: este `README.md`, dentro de la rama `main`.
 
-La URL de Vercel debe incorporarse después de comprobar el despliegue. No se incluyen direcciones de ejemplo que puedan confundirse con publicaciones realizadas.
+El proyecto de Vercel está vinculado con el repositorio de GitHub y utiliza su rama `main` como fuente. La aplicación puede abrirse sin iniciar sesión en Vercel.
 
 ## Tecnologías
 
@@ -93,7 +94,7 @@ npm run dev
 3. Elegir el preset **Vite** y la raíz que contiene `package.json`.
 4. Utilizar `npm ci` para instalar, `npm run build` para compilar y `dist` como directorio de salida.
 5. Desplegar la rama `main` a producción y abrir la URL pública resultante.
-6. Reemplazar los campos pendientes del comienzo de este README por los enlaces verificados y actualizar la sección «Verificación final».
+6. Completar los recorridos de verificación indicados más abajo y registrar la fecha y el resultado.
 
 `vercel.json` contiene la configuración de Vite y la reescritura a `/index.html` necesaria para abrir o recargar rutas de React Router, por ejemplo `/criptomonedas/bitcoin`.
 
@@ -114,14 +115,24 @@ Documentación oficial de referencia: [Vite en Vercel](https://vercel.com/docs/f
 
 ## Verificación final
 
-Fecha de verificación local: **24 de noviembre de 2026**.
+Fecha de verificación: **24 de noviembre de 2026**.
 
-- Pruebas ejecutadas: `npm run test`, **19 aprobadas en 4 archivos**, antes y después de la mejora de mantenibilidad.
-- Instalación reproducible: **sí**, mediante `npm ci` en una copia nueva del commit publicado en GitHub.
-- Build generado correctamente: **sí**, mediante `npm run build` (TypeScript y Vite), también desde esa copia descargada de GitHub.
-- Consulta real a CoinGecko: **HTTP 200** desde el entorno de preparación el 24/11/2026. Esta consulta no acredita por sí sola el acceso desde un navegador publicado.
-- Preview: `npm run preview` comprobado mediante HTTP 200 en `/` y `/criptomonedas/bitcoin`, con el HTML compilado y fallback SPA correctos. La comprobación visual y de recorridos completos en un navegador sigue pendiente.
-- Navegación, formulario y favoritos: comprobados mediante Testing Library con respuestas de API simuladas; falta la revisión visual en navegador y tamaños móvil/escritorio.
-- Repositorio y publicación del código: **completados**, en `Ezzejoa/pulso-abierto`, rama `main`. Commit de la versión de la aplicación: `cbb9662ba39bf6e6d9470d50e8ac5b1c0772f471`. El estado remoto se comprobó mediante `git fetch` y lectura del archivo `package.json` publicado.
-- Despliegue en Vercel: **pendiente de conectar GitHub en la configuración Authentication de Vercel y completar la publicación**. El acceso al espacio de Vercel ya fue autorizado.
-- Verificación pública final: **pendiente**. Esta sección debe actualizarse tras abrir la URL publicada y completar los recorridos.
+| Comprobación | Resultado |
+| --- | --- |
+| Instalación reproducible | `npm ci` completado en una copia nueva del código descargado de GitHub. |
+| Pruebas automatizadas | `npm run test`: **19 pruebas aprobadas en 4 archivos**, antes y después de la mejora, y en la copia descargada del repositorio. |
+| Build productivo | `npm run build` completado con TypeScript y Vite, tanto localmente como en Vercel. Salida: `dist`. |
+| Preview | `npm run preview` iniciado y comprobado mediante HTTP 200 en `/` y `/criptomonedas/bitcoin`, con fallback SPA correcto. Los recorridos interactivos completos se comprobaron en la aplicación publicada. |
+| Repositorio y publicación del código | Código fuente, lockfile, pruebas, configuración y README publicados en la rama `main` de `Ezzejoa/pulso-abierto`. No se versionaron `node_modules`, `dist` ni archivos de entorno. |
+| Despliegue | **Realizado en Vercel, entorno production, estado READY**, a partir del repositorio de GitHub. Instalación: `npm ci`; build: `npm run build`; salida: `dist`; Node.js: `24.x`. |
+| Acceso público | [https://pulso-abierto-gules.vercel.app/](https://pulso-abierto-gules.vercel.app/) abre la aplicación sin autenticación. |
+| API real | Bitcoin, Ethereum y Solana mostraron cotizaciones reales recibidas de CoinGecko desde el navegador de la versión publicada. |
+| Navegación | Apertura del detalle, regreso al listado y recarga directa de `/criptomonedas/bitcoin` comprobados sin error 404. También se abrió el detalle de Ethereum. |
+| Favoritos | Marcar Bitcoin, navegar, recargar y regresar conservó la selección. El contador y la estrella reflejaron el estado. También se comprobó desmarcar. |
+| Formulario | `x` mostró el error de longitud mínima; al corregir a `btc`, se obtuvo un resultado de Bitcoin. El campo vacío recuperó las tres monedas. |
+| Responsividad | Vista angosta de **340 px CSS** y escritorio de **1363 px CSS** comprobados en el navegador. No hubo desbordamiento horizontal; las tarjetas pasaron de una a tres columnas. Se verificó también el detalle en la vista angosta. |
+| Consola | No se observaron errores bloqueantes de la aplicación durante los recorridos comprobados. |
+
+La vista angosta se verificó ajustando el zoom del navegador y midiendo el viewport CSS y las dimensiones de los elementos. Al finalizar se restableció el zoom normal.
+
+La versión funcional comprobada corresponde al commit `27716080420924bc25f1f1d60db2d2a64c91ba98`. Las actualizaciones posteriores de esta documentación no modifican las funcionalidades de la aplicación.
