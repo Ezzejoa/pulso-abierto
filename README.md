@@ -75,7 +75,7 @@ La corrección de favoritos descrita anteriormente completa un recorrido exigido
 
 ## Código y control de versiones
 
-El código fuente está preparado para publicarse en la rama `main` del repositorio indicado al comienzo. La preparación local conserva el historial de la versión recuperada y las modificaciones de cierre. `node_modules`, `dist`, `coverage`, `.vercel`, archivos de entorno y otros archivos locales están excluidos por `.gitignore`. No deben subirse credenciales ni dependencias instaladas.
+El código fuente está publicado en la rama `main` del repositorio indicado al comienzo. La preparación local conserva el historial de la versión recuperada y las modificaciones de cierre. `node_modules`, `dist`, `coverage`, `.vercel`, archivos de entorno y otros archivos locales están excluidos por `.gitignore`. No deben subirse credenciales ni dependencias instaladas.
 
 El repositorio contiene la raíz del proyecto con su código fuente, pruebas y lockfile. La versión que se utilice para desplegar debe corresponder al commit final de `main`. Para continuar desde otra computadora:
 
@@ -117,10 +117,11 @@ Documentación oficial de referencia: [Vite en Vercel](https://vercel.com/docs/f
 Fecha de verificación local: **24 de noviembre de 2026**.
 
 - Pruebas ejecutadas: `npm run test`, **19 aprobadas en 4 archivos**, antes y después de la mejora de mantenibilidad.
-- Build generado correctamente: **sí**, mediante `npm run build` (TypeScript y Vite).
+- Instalación reproducible: **sí**, mediante `npm ci` en una copia nueva del commit publicado en GitHub.
+- Build generado correctamente: **sí**, mediante `npm run build` (TypeScript y Vite), también desde esa copia descargada de GitHub.
 - Consulta real a CoinGecko: **HTTP 200** desde el entorno de preparación el 24/11/2026. Esta consulta no acredita por sí sola el acceso desde un navegador publicado.
 - Preview: `npm run preview` comprobado mediante HTTP 200 en `/` y `/criptomonedas/bitcoin`, con el HTML compilado y fallback SPA correctos. La comprobación visual y de recorridos completos en un navegador sigue pendiente.
 - Navegación, formulario y favoritos: comprobados mediante Testing Library con respuestas de API simuladas; falta la revisión visual en navegador y tamaños móvil/escritorio.
-- Repositorio: `Ezzejoa/pulso-abierto`, rama `main`. El código y el README se publican juntos mediante un commit de cierre; se debe comprobar el estado remoto antes de iniciar el despliegue.
-- Despliegue en Vercel: **pendiente de autorización del espacio y publicación**.
+- Repositorio y publicación del código: **completados**, en `Ezzejoa/pulso-abierto`, rama `main`. Commit de la versión de la aplicación: `cbb9662ba39bf6e6d9470d50e8ac5b1c0772f471`. El estado remoto se comprobó mediante `git fetch` y lectura del archivo `package.json` publicado.
+- Despliegue en Vercel: **pendiente de conectar GitHub en la configuración Authentication de Vercel y completar la publicación**. El acceso al espacio de Vercel ya fue autorizado.
 - Verificación pública final: **pendiente**. Esta sección debe actualizarse tras abrir la URL publicada y completar los recorridos.
